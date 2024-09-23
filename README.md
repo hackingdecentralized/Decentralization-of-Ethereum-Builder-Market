@@ -19,7 +19,7 @@ Note: Please download [eth_blocks.parquet](https://auction-dataset.s3.us-east-2.
 
 Below is a brief introduction to the datasets provided in this paper and their potential benefits for future research.
 
-## Ethereum blocks
+### Ethereum blocks
 
 [eth_blocks.parquet](https://auction-dataset.s3.us-east-2.amazonaws.com/others/eth_blocks.parquet) is a Parquet file that stores all blocks and winning bids from historical MEV-Boost auctions between September 2022 and July 2024. It includes the bid value, true value, builder, and relay information for each block produced through MEV-Boost, making it useful for future analyses of MEV-Boost auctions.
 
@@ -48,11 +48,11 @@ The `data/index` folder includes all intermediate results of true values we comp
 
 The computed true values for auctions provide insights into the actual value of bids in historical MEV-Boost auctions, allowing for the evaluation of the competition among builders and the inequality in their block-building capacities.
 
-## Pivotal providers
+### Pivotal providers
 
 [level.db](https://auction-dataset.s3.us-east-2.amazonaws.com/others/level.db) is a SQLite database file that stores *pivotal providers* from historical MEV-Boost auctions between September 2022 and July 2024. This file can help researchers identify key sources of valuable transactions in these auctions and assess their impact on outcomes.
 
-## Prerequisites
+## Reproducing Results
 
 [Python3](https://www.python.org/downloads/) and [Jupyter Notebook](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html) are required to reproduce the figures and tables, and you can run `pip install -r requirements.txt` to install the following libraries:
 
@@ -66,7 +66,7 @@ scipy==1.14.1
 scipy==1.14.1
 ```
 
-## Structure of the repository
+### Structure of the repository
 
 - `data`: The folder for data.
 - `images`: The folder where the output images are stored.
