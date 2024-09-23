@@ -1,0 +1,214 @@
+{
+    "Flashbots": [
+        "0xdafea492d9c6733ae3d56b7ed1adb60692c98bc5",
+        "0x089780a88f35b58144aa8a9be654207a1afe7959",
+        "0xb4c9E4617a16Be36B92689b9e07e9F64757c1792",
+        "0xb64a30399f7F6b0C154c2E7Af0a3ec7B0A5b131a",
+        "0xc83dad6e38BF7F2d79f2a51dd3C4bE3f530965D6",
+        "0x1d0124FeE8Dbe21884Ab97adCCBF5C55d768886e",
+        "0x9D8e2dc5615c674F329d18786D52AF10a65Af08b",
+        "0x389c8703E9c61F05fE17803eb648653fD3f2aB1C"
+    ],
+    "bloXroute": [
+        "0xf2f5c73fa04406b1995e397b55c24ab1f3ea726c",
+        "0x199d5ed7f45f4ee35960cf22eade2076e95b253f",
+        "0xf573d99385c05c23b24ed33de616ad16a43a0919",
+        "0x965Df5Ff6116C395187E288e5C87fb96CfB8141c",
+        "0x4A55474EACb48CEFe25D7656Db1976AA7AE70E3C",
+        "0x538da63D964A275D90cb7De84ad195881B0655d7"
+    ],
+    "Eden": [
+        "0xaab27b150451726ec7738aa1d0a94505c8729bd1"
+    ],
+    "Manifold": [
+        "0xa45ae232688be5b472c1d3fc83d55c63c7aa80e3",
+        "0x57865ba267D48671A41431F471933aEC32a7c7d1"
+    ],
+    "Blocknative": [
+        "0xbaf6dc2e647aeb6f510f9e318856a1bcd66c5e19"
+    ],
+    "builder0x69": [
+        "0x690b9a9e9aa1c9db991c7721a92d351db4fac990"
+    ],
+    "beaverbuild": [
+        "0x95222290dd7278aa3ddd389cc1e1d165cc4bafe5",
+        "0xa83114A443dA1CecEFC50368531cACE9F37fCCcb"
+    ],
+    "eth-builder": [
+        "0xfee4446922f6e29834dea37d9e9192ccabf1e210",
+        "0xfeebabe6b0418ec13b30aadf129f5dcdd4f70cea"
+    ],
+    "BuildAI": [
+        "0xbd3afb0bb76683ecb4225f9dbc91f998713c3b01"
+    ],
+    "flashbuilder": [
+        "0x14f7b165dc7f7efe45c8443afdc6323fe5a63a51",
+        "0x2aa38280ea295052828fcb24939170ad252d932c"
+    ],
+    "lightspeedbuilder": [
+        "0x61a33c3cbe18e7a2d40d74c15bc10c2982b4270d",
+        "0x7316b4e0f0d4b19b4ac13895224cd522d785e51d",
+        "0xd2090025857b9c7b24387741f120538e928a3a59"
+    ],
+    "rsync-builder": [
+        "0x1f9090aae28b8a3dceadf281b0f12828e676c326",
+        "0x333333f332a06ECB5D20D35da44ba07986D6E203",
+        "0x77777A6C097a1cE65C61A96a49bd1100F660eC94",
+        "0x2222284096033ecb4814e16c56b197f473eb3a43"
+    ],
+    "payload.de": [
+        "0xce0babc8398144aa98d9210d595e3a9714910748"
+    ],
+    "manta-builder": [
+        "0x5f927395213ee6b95de97bddcb1b2b1c0f16844f"
+    ],
+    "bobTheBuilder.xyz": [
+        "0x57af10ed3469b2351ae60175d3c9b3740e1bb649",
+        "0xae08c571e771f360c35f5715e36407ecc89d91ed",
+        "0xd1a0b5843f384f92a6759015c742fc12d1d579a1",
+        "0x6d1a041b51239a7142b7399506a4b8bc672153d5",
+        "0xd87f3d6c5624e8b02be13c2c92f8511b88b94d96",
+        "0x1eb2c1c11eb07e374fb447d65655bd3223df19ec",
+        "0x7890ed08ef84431cfd94aced9cea7d6f00f23a53",
+        "0x1af7cad7f2b93dbe800aa0e48095435b471a09c9",
+        "0x3c496df419762533607f30bb2143aff77bebc36a"
+    ],
+    "antbuilder": [
+        "0xc9d945721ed37c6451e457b3c7f1e0cec42417fb"
+    ],
+    "nfactorial.xyz": [
+       "0x3b7faec3181114a99c243608bc822c5436441fff",
+       "0x566d666c5b33891912372821024e55ff0da55712",
+       "0xa66181598b623598e5f5e9448ccf6facfdf7c652"
+    ],
+    "Titan": [
+        "0xd9d3a3f47a56a987a8119b15c994bc126337dd27",
+        "0x4838b106fce9647bdf1e7877bf73ce8b0bad5f97",
+        "0x42f0ab4851cefb90e1c246067f7ae857577e608d",
+        "0x62d4d3785f8117be8d2ee8e1e81c9147098bc3ff"
+    ],
+    "spiderbuilder.net": [
+        "0x44a1fa733966be1cd6a807e30ce7b28eeb4bd8ae"
+    ],
+    "bee-builder.com": [
+        "0x7b4166f27ba450a6dfa64062432fa0ebe2d60e46"
+    ],
+    "Gambit Labs": [
+       "0x0aa8ebb6ad5a8e499e550ae2c461197624c6e667",
+       "0x116417a40bce2ba2acd84d8da46c60d2f7398d50",
+       "0xac7ea48093b61f2e217b9d077d69d9d55ca1b106"
+    ],
+    "f1b.io": [
+        "0xb9342d6a9789cc6479e48cfef67590c1bd05744e",
+        "0x6296fa328080f1db9e0b8676152cf9c90bf7bac2",
+        "0x5124fcc2b3f99f571ad67d075643c743f38f1c34"
+    ],
+    "boba-builder.com": [
+        "0x3b64216ad1a58f61538b4fa1b27327675ab7ed67"
+    ],
+    "EigenPhi": [
+        "0xac3853762bf95e544112bb71ee2898dcc4a10f47"
+    ],
+    "smithbot.xyz": [
+        "0x000000000000d3b2c76221467d2f8c8f1de832a2"
+    ],
+    "blocksmith.org": [
+        "0x28a1eab4bea031bb2d79d67049ae6a09e27b10b5",
+        "0xeca176d9e70ef0d9a91bb488606d8a868745764d"
+    ],
+    "If you build it, they will come.": [
+        "0xbce13d2a94f7681f107768185f895aa9aa850fd1",
+        "0xd05ced407eb825b09fe54b7cc0cb2c0544bfd0bb"
+    ],
+    "PLC.eth": [
+        "0x5767714a08a80b9a487b5a96d2e6014ff1072171"
+    ],
+    "Ty For The Block": [
+        "0x25b71878850d008ec4237c55f0a59198bcc72b43"
+    ],
+    "mars": [
+        "0xeeee8db5fc7d505e99970945a9220ab7992050e3"
+    ],
+    "jetbldr.xyz": [
+        "0x88c6c46ebf353a52bdbab708c23d0c81daa8134a",
+        "0x5F525f637759FCa7C9d1C0C4f9d479D6E8D8ceF5"
+    ],
+    "lokibuilder.xyz": [
+        "0x8186b214a917fb4922eb984fb80cfafa30ee8810"
+    ],
+    "penguinbuild.org": [
+        "0xf15689636571dba322b48e9ec9ba6cfb3df818e1",
+        "0x1f1522b9621975321c3578bd40db5f07a122fc0d"
+    ],
+    "rpc.tbuilder.xyz": [
+        "0xdcca982701a264e8d629a6e8cfba9c1a27912623",
+        "0xb279d48442aafcf8f2af6d9e7d5d9c23f63b4e16"
+    ],
+    "blockbeelder.com": [
+        "0x7adc0e867ebc337e2d20c44db181c067fa08637b"
+    ],
+    "0x473780deaf4a2ac070bbba936b0cdefe7f267dfc": [
+        "0x473780deaf4a2ac070bbba936b0cdefe7f267dfc"
+    ],
+    "finest artisanal blocks": [
+        "0x1e54945fbf1872e34d76b7d72151b861704df8b2"
+    ],
+    "BTCS builder": [
+        "0x0b92619dde55c0cbf828d32993a7fb004e00c84b",
+        "0x7dbfed5686847113b527dc215dba4e332df8cc6c",
+        "0xedcb63f859905be353d85d53041e9697dbea5f81"
+    ],
+    "uwu.builders": [
+        "0xd0d0ce5c067eeea7487ca11153247905364eeb12"
+    ],
+    "I can haz block?": [
+        "0x229b8325bb9ac04602898b7e8989998710235d5f"
+    ],
+    "pandabuilder": [
+        "0x8dc06221e6cbaded0c8344d48045d5be4d3d01e5"
+    ],
+    "Wenmerge": [
+        "0xb661cbdd4344f4b533f33799220309cd20abd34a"
+    ],
+    "0x25d88437df70730122b73ef35462435d187c466f": [ 
+        "0x25d88437df70730122b73ef35462435d187c466f",
+        "0xa7fdca7aa0b69927a34ec48ddcfe3d4c66ff0d94"
+    ],
+    "0x3bee5122e2a2fbe11287aafb0cb918e22abb5436": [
+        "0x3bee5122e2a2fbe11287aafb0cb918e22abb5436"
+    ],
+    "0x5eE7D9ad0bbB3559891bF12855ac3EDC971b37f7": [
+        "0x5eE7D9ad0bbB3559891bF12855ac3EDC971b37f7"
+    ],
+    "0x729f978f5BB2d282226eF9f7AE19C0F34c15bd15": [
+        "0x729f978f5BB2d282226eF9f7AE19C0F34c15bd15"
+    ],
+    "0x5638cbdc72bd8554055883d309cfc70357190cf3": [
+        "0x5638cbdc72bd8554055883d309cfc70357190cf3"
+    ],
+    "0x8CEE1d454c09a9086f6567743C832A73B9Fd458f": [
+        "0x8CEE1d454c09a9086f6567743C832A73B9Fd458f"
+    ],
+    "Buildoooooooooooooor": [
+        "0xb646D87963Da1FB9D192Ddba775f24f33e857128"
+    ],
+    "0x000E633ddeF00DA46aBd5044779257a64ead9bce": [
+        "0x000E633ddeF00DA46aBd5044779257a64ead9bce"
+    ],
+    "0x1324c0fB6F45f3bF1AAA1fCdC08f17431F53DeD7":[
+        "0x1324c0fB6F45f3bF1AAA1fCdC08f17431F53DeD7"
+    ],
+    "0x14F1a856A821B3CE5F59d3bA813D614546125C15": [
+        "0x14F1a856A821B3CE5F59d3bA813D614546125C15"
+    ],
+    "0x6aF43cC73c4a871274767887e8E39Eeb540582A3": [
+        "0x6aF43cC73c4a871274767887e8E39Eeb540582A3"
+    ],
+    "0x8d5998a27b3cdf33479b65b18f075e20a7aa05b9": [
+        "0x8d5998a27b3cdf33479b65b18f075e20a7aa05b9"
+    ],
+    "Teehee": [
+        "0x8c910d22b51ff763d625c4a2fc915200b4229293",
+        "0x31d55f6c9d605caf8855f783d7577dbe3e514b51"
+    ]
+}
