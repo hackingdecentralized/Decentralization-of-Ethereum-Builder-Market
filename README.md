@@ -63,7 +63,6 @@ numpy==1.26.4
 pandas==2.2.2
 seaborn==0.13.2
 scipy==1.14.1
-scipy==1.14.1
 ```
 
 ### Structure of the repository
