@@ -9,6 +9,45 @@ from collections import defaultdict
 from time_util import calc_slot_timestamp
 
 
+SCP = [
+    '0xa69babef1ca67a37ffaf7a485dfff3382056e78c',
+    '0x56178a0d5f301baf6cf3e1cd53d9863437345bf9',
+    '0xa57bd00134b2850b2a1c55860c9e9ea100fdd6cf',
+    '0x4cb18386e5d1f34dc6eea834bf3534a970a3f8e7',
+    '0x5050e08626c499411b5d0e0b5af0e83d3fd82edf',
+    '0xfa103c21ea2df71dfb92b0652f8b1d795e51cdef',
+    '0x0da9d9ecea7235c999764e34f08499ca424c0177'
+]
+SCP = [i.lower() for i in SCP]
+
+
+WINTERMUTE = [
+    '0x0000006daea1723962647b7e189d311d757fb793',
+    '0x00000000ae347930bd1e7b0f35588b92280f9e75',
+    '0x0087bb802d9c0e343f00510000729031ce00bf27',
+    '0xaf0b0000f0210d0f421f0009c72406703b50506b',
+    '0x280027dd00ee0050d3f9d168efd6b40090009246',
+    '0x51c72848c68a965f66fa7a88855f9f7784502a7f',
+    '0xec6fc9be2d5e505b40a2df8b0622cd25333823db'
+]
+WINTERMUTE = [i.lower() for i in WINTERMUTE]
+
+
+JUMP = [
+    '0x9507c04b10486547584c37bcbd931b2a4fee9a41',
+    '0xf584f8728b874a6a5c7a8d4d387c9aae9172d621',
+    '0x2d35ce0cabf4ac263eab1c182a454c91cc155cc1'
+]
+JUMP = [i.lower() for i in JUMP]
+
+
+coffee = [
+    '0xC0ffeEBABE5D496B2DDE509f9fa189C25cF29671'.lower(),
+    '0x3aa228a80f50763045bdfc45012da124bd0a6809'.lower(),
+    '0xe08d97e151473a848c3d9ca3f323cb720472d015'.lower(),
+]
+
+
 def get_source_from_txn(txn):
     global searchers
 
@@ -30,12 +69,27 @@ def get_source_from_txn(txn):
         if txn["Unibot"]:
             sources.append("Unibot")
 
-        if txn["from"].lower() == "0xae2fc483527b8ef99eb5d9b44875f005ba1fae13":
+        if txn["Sigma"]:
+            sources.append("Sigma")
+
+        if txn["from"].lower() == "0xae2fc483527b8ef99eb5d9b44875f005ba1fae13" or (txn["to"] is not None and txn["to"].lower() == "0x93ffb15d1fa91e0c320d058f00ee97f9e3c50096"):
             sources.append("jaredfromsubway.eth")
+        elif txn["to"] is not None and txn["to"].lower() in SCP:
+            sources.append("SCP")
+        elif txn["to"] is not None and txn["to"].lower() in WINTERMUTE:
+            sources.append("WINTERMUTE")
+        elif txn["to"] is not None and txn["to"].lower() in JUMP:
+            sources.append("JUMP")
+        elif txn["to"] is not None and txn["to"].lower() in coffee:
+            sources.append("c0ffeebabe.eth")
         elif txn["from"].lower() in searchers:
             sources.append("Searcher: " + txn["from"].lower())
         elif type(txn["to"]) == str and txn["to"].lower() in searchers:
             sources.append("Searcher: " + txn["to"].lower())
+        elif txn["to"] is not None:
+            sources.append("Contract: " + txn["to"].lower())
+        else:
+            sources.append("User: " + txn["from"].lower())
 
     return tuple(sources)
 
@@ -49,6 +103,7 @@ def parse_date(bids_folder_path, date_str, blocks_df, private_transactions_df):
     slot_to_block_value = dict(zip(blocks_df["slot"], blocks_df["block_value"]))
     slot_to_bid_value = dict(zip(blocks_df["slot"], blocks_df["bid_value"]))
     slot_to_timestamp = dict(zip(blocks_df["slot"], blocks_df["timestamp"]))
+    slot_to_public_value = dict(zip(blocks_df["slot"], blocks_df["public"]))
 
     bids_df = pd.read_parquet(f"{bids_folder_path}/{date_str}.parquet", engine="fastparquet")
     bids_df["timestamp_ms"] = pd.to_datetime(bids_df["timestamp_ms"], format="mixed")
@@ -92,6 +147,7 @@ def parse_date(bids_folder_path, date_str, blocks_df, private_transactions_df):
         winner = slot_to_winner[slot]
         winning_bid_value = slot_to_bid_value[slot] * 1e18
         winning_block_value = slot_to_block_value[slot] * 1e18
+        public_value = slot_to_public_value[slot] * 1e18
 
         if slot in winning_bid_timestamp:
             timestamp = max(winning_bid_timestamp[slot], slot_to_timestamp[slot])
@@ -105,17 +161,17 @@ def parse_date(bids_folder_path, date_str, blocks_df, private_transactions_df):
         
         for provider, profit in provider_profits[number].items():
             if winning_block_value - profit < next_highest_bid_value:
-                pivotal_providers.append((date_str, number, slot, winning_block_value, winner, provider, profit))
+                pivotal_providers.append((date_str, number, slot, winning_bid_value, winning_block_value, float(next_highest_bid_value), public_value, winner, provider, profit))
 
     print(f"Identify pivotal providers {time.time()-t:.2f}s")
 
-    return pd.DataFrame(pivotal_providers, columns=["date", "number", "slot", "value", "winner", "provider", "profit"])
+    return pd.DataFrame(pivotal_providers, columns=["date", "number", "slot", "bid_value", "block_value", "next_highest_bid_value", "public_value", "winner", "provider", "txn_fee"])
 
 
 def identify_pivotal_builders(private_transactions_path, blocks_path, bids_folder_path, db_path, builders):
     print("Loading data...")
-    private_transactions_df = pd.read_parquet(private_transactions_path)
-    private_transactions_df["txn_fee"] = pd.to_numeric(private_transactions_df["txn_fee"], errors="coerce")
+    private_transactions = os.listdir(private_transactions_path)
+    private_transactions = [i for i in private_transactions if i.endswith(".parquet")]
 
     blocks_df = pd.read_parquet(blocks_path)
     blocks_df = blocks_df[blocks_df["builder_pubkey"].notnull()].reindex()
@@ -124,12 +180,24 @@ def identify_pivotal_builders(private_transactions_path, blocks_path, bids_folde
     blocks_df["date"] = blocks_df["timestamp"].dt.strftime("%Y%m%d")
 
     print("Start identifying pivotal builders by date")
+    current_month = None
+    private_transactions_df = pd.DataFrame()
     for date_str, date_df in blocks_df.groupby("date"):
+        # load private transactions for current month
+        month_str = date_str[:6]
+        if month_str != current_month:
+            current_month = month_str
+            for month_file in private_transactions:
+                if current_month in month_file:
+                    private_transactions_df = pd.read_parquet(os.path.join(private_transactions_path, month_file))
+                    private_transactions_df["source"] = private_transactions_df.apply(get_source_from_txn, axis=1)
+                    print(f"Loaded {month_file} for {current_month}")
+                    break
+                    
         block_numbers = date_df["number"].unique()
         daily_private_transactions_df = private_transactions_df[private_transactions_df["blockNumber"].isin(block_numbers)].reindex()
-        daily_private_transactions_df["source"] = daily_private_transactions_df.apply(get_source_from_txn, axis=1)
 
-        pivotal_providers_df = parse_date(bids_folder_path, date_str, blocks_df, daily_private_transactions_df)
+        pivotal_providers_df = parse_date(bids_folder_path, date_str, date_df, daily_private_transactions_df)
         con = sq.connect(db_path)
         pivotal_providers_df.to_sql("pivotal_providers", con, if_exists="append", index=False)
         con.commit()
@@ -150,7 +218,7 @@ if __name__ == "__main__":
     con = sq.connect(db_path)
     cur = con.cursor()
     cur.execute("DROP TABLE IF EXISTS pivotal_providers")
-    cur.execute("CREATE TABLE pivotal_providers (date TEXT, number INTEGER, slot INTEGER, value FLOAT,  winner TEXT, provider TEXT, profit FLOAT)")
+    cur.execute("CREATE TABLE pivotal_providers (date TEXT, number INTEGER, slot INTEGER, bid_value FLOAT, block_value FLOAT, next_highest_bid_value FLOAT, public_value FLOAT, winner TEXT, provider TEXT, txn_fee FLOAT)")
     con.commit()
     con.close()
 
@@ -165,3 +233,4 @@ if __name__ == "__main__":
     builders = {i:k for k, v in builders.items() for i in v}
 
     identify_pivotal_builders(args.private_transactions_path, args.blocks_path, args.bids_folder_path, db_path, builders)
+
