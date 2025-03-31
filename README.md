@@ -2,30 +2,20 @@
 
 This repository holds the data and code used for the paper "Decentralization of Ethereum's Builder Market".
 
-Consider cite our work if you find our contributions helpful!
-```bibtex
-@article{yang2024decentralization,
-  title={Decentralization of Ethereum's Builder Market},
-  author={Yang, Sen and Nayak, Kartik and Zhang, Fan},
-  journal={arXiv preprint arXiv:2405.01329},
-  year={2024}
-}
-```
-
 
 ## Data
 
-Note: Please download [eth_blocks.parquet](https://auction-dataset.s3.us-east-2.amazonaws.com/others/eth_blocks.parquet), [private_transactions.parquet](https://auction-dataset.s3.us-east-2.amazonaws.com/others/private_transactions.parquet), and [level.db](https://auction-dataset.s3.us-east-2.amazonaws.com/others/level.db), and place them in the `data` folder to ensure the code works properly.
+Note: Please download `eth_blocks.parquet` and `level.db` from our [public datasets](https://doi.org/10.7910/DVN/3X7X2U) and place them in the `data` folder. Also, download all `private_transactions_{month}.parquet` files and place them in the `data/private_transactions` folder to ensure the code works properly.
 
 Below is a brief introduction to the datasets provided in this paper and their potential benefits for future research.
 
 ### Ethereum blocks
 
-[eth_blocks.parquet](https://auction-dataset.s3.us-east-2.amazonaws.com/others/eth_blocks.parquet) is a Parquet file that stores all blocks and winning bids from historical MEV-Boost auctions between September 2022 and July 2024. It includes the bid value, true value, builder, and relay information for each block produced through MEV-Boost, making it useful for future analyses of MEV-Boost auctions.
+[eth_blocks.parquet](https://dataverse.harvard.edu/api/access/datafile/11037520) is a Parquet file that stores all blocks and winning bids from historical MEV-Boost auctions between September 2022 and October 2024. It includes the bid value, true value, builder, and relay information for each block produced through MEV-Boost, making it useful for future analyses of MEV-Boost auctions.
 
 ### Private order flows
 
-[private_transactions.parquet](https://auction-dataset.s3.us-east-2.amazonaws.com/others/private_transactions.parquet)is a Parquet file that stores all private order flows, their sources, and values from September 2022 to July 2024.
+The `data/private_transactions` folder consists of monthly Parquet files named as `private_transactions_{month}.parquet`, each storing private order flows, their sources, and values from September 2022 to October 2024.
 
 ### Builder information
 
@@ -34,13 +24,15 @@ JSON files containing mappings between builder public keys (addresses) and build
 - `builders.json`: The mapping between builder public keys and builder identities.
 - `addresses.json`: The mapping between builder addresses and builder identities.
 
+### Searcher information
+
+The CSV file contains the addresses of the searchers' smart contracts.
 
 ### Partial bids
 
-The partial bids for historical MEV-Boost auctions between September 2022 and July 2024 are available in this [S3 bucket](https://auction-dataset.s3.us-east-2.amazonaws.com/index.html).
+The partial bids for historical MEV-Boost auctions between September 2022 and October 2024 are available in the [public datasets](https://doi.org/10.7910/DVN/3X7X2U).
 
 This dataset includes the public keys and bids of all builders in historical MEV-Boost auctions, offering a granular view of auction dynamics and enabling researchers to model the bidding behavior of builders.
-
 
 ### Computed true values
 
@@ -50,7 +42,8 @@ The computed true values for auctions provide insights into the actual value of 
 
 ### Pivotal providers
 
-[level.db](https://auction-dataset.s3.us-east-2.amazonaws.com/others/level.db) is a SQLite database file that stores *pivotal providers* from historical MEV-Boost auctions between September 2022 and July 2024. This file can help researchers identify key sources of valuable transactions in these auctions and assess their impact on outcomes.
+[level.db](https://dataverse.harvard.edu/api/access/datafile/11037519) is a SQLite database file that stores *pivotal providers* from historical MEV-Boost auctions between September 2022 and October 2024. This file can help researchers identify key sources of valuable transactions in these auctions and assess their impact on outcomes.
+
 
 ## Reproducing Results
 
@@ -69,7 +62,25 @@ scipy==1.14.1
 
 - `data`: The folder for data.
 - `images`: The folder where the output images are stored.
-- `pivotal_provider.py`: A script to compute pivotal providers from historical MEV-Boost auctions between September 2022 and July 2024.
+- `pivotal_provider.py`: A script to compute pivotal providers from historical MEV-Boost auctions between September 2022 and October 2024.
 - `plot.ipynb`: A Jupyter notebook to reproduce all results in the paper.
 - `time_util.py`: A script that defines time utility functions for computing Ethereum slots.
 - `validate_bids_representativeness.py`: A script to validate the representativeness of the bids from ultra sound relay.
+
+### Simulation framework
+
+The simulation framework we built for computing the true value of historical bids is available in our [reth fork](https://github.com/hackingdecentralized/reth).
+
+
+## Acknowledging Our Work
+
+Consider cite our work if you find our contributions helpful!
+```bibtex
+@inproceedings{yang2025decentralization,
+  title={Decentralization of Ethereum's Builder Market},
+  author={Yang, Sen and Nayak, Kartik and Zhang, Fan},
+  booktitle = {2025 IEEE Symposium on Security and Privacy (SP)},
+  year = {2025},
+  organization = {IEEE}
+}
+```
