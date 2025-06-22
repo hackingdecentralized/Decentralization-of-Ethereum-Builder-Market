@@ -82,8 +82,9 @@ Consider cite our work if you find our contributions helpful!
 @inproceedings{yang2025decentralization,
   title={Decentralization of Ethereum's Builder Market},
   author={Yang, Sen and Nayak, Kartik and Zhang, Fan},
-  booktitle = {2025 IEEE Symposium on Security and Privacy (SP)},
-  year = {2025},
-  organization = {IEEE}
+  booktitle={2025 IEEE Symposium on Security and Privacy (SP)},
+  pages={1512--1530},
+  year={2025},
+  organization={IEEE}
 }
 ```
