@@ -1,7 +1,10 @@
 # Decentralization of Ethereum's Builder Market
 
-This repository holds the data and code used for the paper "Decentralization of Ethereum's Builder Market".
+[![IEEE Xplore](https://img.shields.io/badge/IEEE%20Xplore-View%20Paper-blue)](https://ieeexplore.ieee.org/document/11023282)
+[![arXiv](https://img.shields.io/badge/arXiv-2405.01329-b31b1b.svg?style=flat)](https://arxiv.org/abs/2405.01329)
+[![Harvard Dataverse](https://img.shields.io/badge/Harvard%20Dataverse-Datasets-orange)](https://doi.org/10.7910/DVN/3X7X2U)
 
+This repository holds the data and code used for the paper "Decentralization of Ethereum's Builder Market".
 
 ## Data
 
